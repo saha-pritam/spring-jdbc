@@ -4,16 +4,14 @@ import java.util.List;
 
 import org.pritam.springjdbc.entity.Customer;
 import org.pritam.springjdbc.entity.CustomerMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
 public class CustomerDAOImplementation implements CustomerDAO {
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
-	}
-	
 	public void createCustomerTable() {
 		String dropTableQuery="drop table if exists Customers";
 		String createTableQuery="create table Customers"
