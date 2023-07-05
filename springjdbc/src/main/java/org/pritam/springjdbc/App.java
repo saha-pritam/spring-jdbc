@@ -33,6 +33,10 @@ public class App
         customerDAO.insert(customer6);
         customerDAO.insert(customer7);
         
+      //Topic - 8
+        Customer updateCustomer = new Customer(4,"Pritam Saha","Thomas Hardy","120 Hanover Sq.","London","WA1 1DP","UK");
+        customerDAO.update(updateCustomer);
+        
         ((ConfigurableApplicationContext)context).close();
     }
 }

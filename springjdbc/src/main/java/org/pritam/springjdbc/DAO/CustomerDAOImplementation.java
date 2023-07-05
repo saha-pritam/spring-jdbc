@@ -40,4 +40,18 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		System.out.println("Row Inserted...");
 		return result;
 	}
+
+	public int update(Customer customer) {
+		String updateQuery="update Customers set CustomerName=?, ContactName=?, Address=?, City=?, PostalCode=?, Country=? where CustomerID=?";
+		int result = jdbcTemplate.update(updateQuery, 
+				customer.getCustomerName(), 
+				customer.getContactName(), 
+				customer.getAddress(), 
+				customer.getCity(), 
+				customer.getPostalCode(), 
+				customer.getCountry(),
+				customer.getCustomerID());
+		System.out.println("Row Updated...");
+		return result;
+	}
 }

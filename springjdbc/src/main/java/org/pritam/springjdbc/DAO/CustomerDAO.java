@@ -6,4 +6,6 @@ public interface CustomerDAO {
 	public void createCustomerTable();
 	
 	public int insert(Customer customer);
+	
+	public int update(Customer customer);
 }
