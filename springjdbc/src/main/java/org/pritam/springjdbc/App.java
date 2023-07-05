@@ -1,5 +1,7 @@
 package org.pritam.springjdbc;
 
+import java.util.List;
+
 import org.pritam.springjdbc.DAO.CustomerDAO;
 import org.pritam.springjdbc.entity.Customer;
 import org.springframework.context.ApplicationContext;
@@ -45,6 +47,11 @@ public class App
         System.out.println("c1 = "+c1);
         Customer c2 = customerDAO.getCustomerById(4);
         System.out.println("c2 = "+c2);
+        
+        //Topic - 11
+        List<Customer> customers = customerDAO.getAllCustomers();
+        for(Customer customer:customers)
+        	System.out.println(customer);
         
         ((ConfigurableApplicationContext)context).close();
     }

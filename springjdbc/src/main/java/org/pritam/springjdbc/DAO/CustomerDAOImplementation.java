@@ -1,5 +1,7 @@
 package org.pritam.springjdbc.DAO;
 
+import java.util.List;
+
 import org.pritam.springjdbc.entity.Customer;
 import org.pritam.springjdbc.entity.CustomerMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -69,5 +71,12 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		RowMapper<Customer> mapper = new CustomerMapper();
 		Customer customer = jdbcTemplate.queryForObject(selectQuery, mapper, customerId);
 		return customer;
+	}
+	
+	public List<Customer> getAllCustomers() {
+		String selectQuery = "select * from customers";
+		RowMapper<Customer> mapper = new CustomerMapper();
+		List<Customer> customers = jdbcTemplate.query(selectQuery, mapper);
+		return customers;
 	}
 }
