@@ -40,6 +40,12 @@ public class App
         //Topic - 9
         customerDAO.delete(6);
         
+        //Topic - 10
+        Customer c1 = customerDAO.getCustomerById(2);
+        System.out.println("c1 = "+c1);
+        Customer c2 = customerDAO.getCustomerById(4);
+        System.out.println("c2 = "+c2);
+        
         ((ConfigurableApplicationContext)context).close();
     }
 }

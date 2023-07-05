@@ -1,7 +1,9 @@
 package org.pritam.springjdbc.DAO;
 
 import org.pritam.springjdbc.entity.Customer;
+import org.pritam.springjdbc.entity.CustomerMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 public class CustomerDAOImplementation implements CustomerDAO {
 	private JdbcTemplate jdbcTemplate;
@@ -62,5 +64,10 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		return result;
 	}
 	
-	
+	public Customer getCustomerById(int customerId) {
+		String selectQuery = "select * from customers where customerId=?";
+		RowMapper<Customer> mapper = new CustomerMapper();
+		Customer customer = jdbcTemplate.queryForObject(selectQuery, mapper, customerId);
+		return customer;
+	}
 }
