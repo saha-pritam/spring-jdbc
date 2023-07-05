@@ -54,4 +54,13 @@ public class CustomerDAOImplementation implements CustomerDAO {
 		System.out.println("Row Updated...");
 		return result;
 	}
+
+	public int delete(int customerId) {
+		String deleteQuery= "delete from Customers where CustomerID=?";
+		int result = jdbcTemplate.update(deleteQuery, customerId);
+		System.out.println("Row Deleted...");
+		return result;
+	}
+	
+	
 }

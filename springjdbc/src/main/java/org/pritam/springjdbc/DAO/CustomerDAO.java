@@ -8,4 +8,6 @@ public interface CustomerDAO {
 	public int insert(Customer customer);
 	
 	public int update(Customer customer);
+	
+	public int delete(int customerId);
 }
